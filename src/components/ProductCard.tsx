@@ -48,12 +48,12 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
       </Link>
 
-      <div className="mt-4 flex flex-col items-start text-[13px] tracking-tight">
+      <div className="mt-4 flex flex-col items-start text-[11px] tracking-tight uppercase">
         <Link href="/product/sneaker-1" className="hover:underline">
-          <h3 className="font-bold text-black uppercase">{product.name}</h3>
+          <h3 className="font-bold text-black">{product.name}</h3>
         </Link>
-        <p className="text-gray-500 font-medium">{product.material}</p>
-        <p className="mt-1 font-bold">{product.price} {product.currency}</p>
+        <p className="text-gray-400 font-bold">{product.material}</p>
+        <p className="mt-1 font-bold text-black">{product.price} {product.currency}</p>
       </div>
     </div>
   );
