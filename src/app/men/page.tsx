@@ -12,21 +12,21 @@ export default function MenPage() {
   const products = PRODUCTS.filter(p => !p.name.toLowerCase().includes("woman") && !p.name.toLowerCase().includes("panty"));
 
   return (
-    <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white flex flex-col items-center">
       <Header />
       <CartDrawer />
       
       <main className="w-full max-w-[1500px] px-6 md:px-12 py-20 flex flex-col items-center">
-        <nav className="w-full flex items-center gap-3 mb-16 text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">
-          <Link href="/" className="hover:text-black transition-colors">Home</Link>
+        <nav className="w-full flex items-center gap-3 mb-16 text-[10px] font-normal uppercase tracking-[0.2em] text-gray-400">
+          <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <ChevronRight className="w-3 h-3 opacity-30" />
-          <span className="text-black">Menswear</span>
+          <span className="text-white">Menswear</span>
         </nav>
 
         <div className="w-full flex flex-col lg:flex-row justify-between items-end mb-32 gap-12">
            <div className="flex flex-col gap-6">
-              <span className="text-[12px] font-bold uppercase tracking-[0.4em] text-gray-400">Contemporary Staples</span>
-              <h1 className="text-[42px] md:text-[64px] font-medium uppercase tracking-tight leading-none text-black italic">
+              <span className="text-[12px] font-light uppercase tracking-[0.4em] text-gray-400">Contemporary Staples</span>
+              <h1 className="text-[42px] md:text-[64px] font-normal uppercase tracking-tight leading-none text-white italic">
                 Men&apos;s Collection
               </h1>
            </div>
@@ -46,3 +46,4 @@ export default function MenPage() {
     </div>
   );
 }
+

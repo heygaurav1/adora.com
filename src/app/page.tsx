@@ -18,7 +18,7 @@ export default function Home() {
   const saleItems = PRODUCTS.filter(p => p.tag === "SALE" || (p.oldPrice && p.oldPrice > p.price)).slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black overflow-x-hidden flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white overflow-x-hidden flex flex-col items-center">
       <Header />
       <CartDrawer />
 
@@ -44,10 +44,10 @@ export default function Home() {
                 Effortless, elevated essentials — crafted for the modern Angeleno.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
-                <Link href="/women" className="h-[52px] px-10 bg-white text-black text-[12px] font-normal uppercase tracking-[0.2em] hover:bg-zinc-200 transition-all flex items-center justify-center rounded-full shadow-2xl">
+                <Link href="/women" className="h-[52px] px-10 bg-black text-white text-[12px] font-normal uppercase tracking-[0.2em] hover:bg-zinc-200 transition-all flex items-center justify-center rounded-full shadow-2xl">
                   Shop Her
                 </Link>
-                <Link href="/men" className="h-[52px] px-10 border border-white/20 text-white text-[12px] font-normal uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all flex items-center justify-center rounded-full">
+                <Link href="/men" className="h-[52px] px-10 border border-white/20 text-white text-[12px] font-normal uppercase tracking-[0.2em] hover:bg-black hover:text-white transition-all flex items-center justify-center rounded-full">
                   Shop Him
                 </Link>
               </div>
@@ -129,7 +129,7 @@ export default function Home() {
               <p className="text-white/50 text-[14px] md:text-[15px] leading-relaxed mb-12 max-w-[600px] mx-auto font-light tracking-wide">
                 ADORA partners with GOTS-certified mills to bring you 100% sustainable collections — organic cotton, recycled silk, zero-waste packaging.
               </p>
-              <Link href="/new-in" className="inline-flex items-center gap-3 px-10 py-4 bg-white text-black text-[12px] font-normal uppercase tracking-[0.2em] rounded-full hover:bg-zinc-200 transition-all shadow-2xl">
+              <Link href="/new-in" className="inline-flex items-center gap-3 px-10 py-4 bg-black text-white text-[12px] font-normal uppercase tracking-[0.2em] rounded-full hover:bg-zinc-200 transition-all shadow-2xl">
                  Explore Sustainable Edit <ArrowRight className="w-4 h-4" />
               </Link>
            </div>
@@ -143,7 +143,7 @@ export default function Home() {
                   <span className="text-[10px] font-normal uppercase tracking-[0.4em] text-white/40">Fresh Drops</span>
                   <h2 className="text-[32px] md:text-[52px] font-extralight uppercase tracking-[0.1em] leading-none text-white">Just Arrived</h2>
                </div>
-               <Link href="/new-in" className="h-[48px] px-10 border border-white/10 text-white/60 text-[11px] font-normal uppercase tracking-[0.2em] hover:bg-white hover:text-black hover:border-white transition-all rounded-full flex items-center justify-center">
+               <Link href="/new-in" className="h-[48px] px-10 border border-white/10 text-white/60 text-[11px] font-normal uppercase tracking-[0.2em] hover:bg-black hover:text-white hover:border-white transition-all rounded-full flex items-center justify-center">
                  View All
                </Link>
             </div>
@@ -159,7 +159,7 @@ export default function Home() {
         <section className="w-full py-24 bg-zinc-950/50 border-y border-white/5 flex flex-col items-center">
             <div className="w-full max-w-[1400px] px-6 md:px-12 grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
                <div className="flex flex-col items-center text-center gap-5 group">
-                  <div className="w-14 h-14 bg-white/5 border border-white/5 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
+                  <div className="w-14 h-14 bg-black/5 border border-white/5 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-black/10 transition-all duration-500">
                      <Truck className="w-5 h-5 text-white/60" strokeWidth={1} />
                   </div>
                   <div className="flex flex-col gap-2 items-center">
@@ -168,7 +168,7 @@ export default function Home() {
                   </div>
                </div>
                <div className="flex flex-col items-center text-center gap-5 group">
-                  <div className="w-14 h-14 bg-white/5 border border-white/5 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
+                  <div className="w-14 h-14 bg-black/5 border border-white/5 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-black/10 transition-all duration-500">
                      <Clock className="w-5 h-5 text-white/60" strokeWidth={1} />
                   </div>
                   <div className="flex flex-col gap-2 items-center">
@@ -177,7 +177,7 @@ export default function Home() {
                   </div>
                </div>
                <div className="flex flex-col items-center text-center gap-5 group">
-                  <div className="w-14 h-14 bg-white/5 border border-white/5 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
+                  <div className="w-14 h-14 bg-black/5 border border-white/5 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-black/10 transition-all duration-500">
                      <ShieldCheck className="w-5 h-5 text-white/60" strokeWidth={1} />
                   </div>
                   <div className="flex flex-col gap-2 items-center">
@@ -186,7 +186,7 @@ export default function Home() {
                   </div>
                </div>
                <div className="flex flex-col items-center text-center gap-6 group">
-                  <div className="w-14 h-14 bg-white/5 border border-white/5 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
+                  <div className="w-14 h-14 bg-black/5 border border-white/5 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-black/10 transition-all duration-500">
                      <Gem className="w-5 h-5 text-white/60" strokeWidth={1} />
                   </div>
                   <div className="flex flex-col gap-2 items-center">
@@ -250,3 +250,4 @@ export default function Home() {
     </div>
   );
 }
+

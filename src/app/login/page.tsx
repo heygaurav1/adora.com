@@ -36,7 +36,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white flex flex-col items-center justify-center relative overflow-hidden">
       
       {/* Background Decorative Blur */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
@@ -93,7 +93,7 @@ export default function LoginPage() {
 
           <button 
             type="submit" 
-            className="w-full h-14 bg-white text-black rounded-xl text-[14px] font-normal tracking-wide hover:bg-gray-200 transition-all flex items-center justify-center gap-2 group"
+            className="w-full h-14 bg-black text-white rounded-xl text-[14px] font-normal tracking-wide hover:bg-gray-200 transition-all flex items-center justify-center gap-2 group"
           >
             Sign in
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -134,3 +134,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

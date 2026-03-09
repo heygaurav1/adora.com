@@ -26,10 +26,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased flex flex-col items-center w-full min-h-screen bg-white">
+      <body className="antialiased flex flex-col items-center w-full min-h-screen bg-black text-white">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-black focus:px-6 focus:py-3 focus:font-bold focus:shadow-xl"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-black focus:text-white focus:px-6 focus:py-3 focus:font-light focus:shadow-xl"
         >
           Skip to content
         </a>

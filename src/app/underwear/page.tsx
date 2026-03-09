@@ -10,7 +10,7 @@ export default function UnderwearPage() {
   const products = getProductsByCategory("underwear");
 
   return (
-    <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white flex flex-col items-center">
       <Header />
       <CartDrawer />
       
@@ -18,7 +18,7 @@ export default function UnderwearPage() {
         <div className="flex flex-col items-center text-center mb-24">
            <span className="text-[12px] font-black tracking-[0.6em] text-gray-300 mb-6 uppercase">Modern Essentials</span>
            <h1 className="text-[48px] md:text-[80px] font-black uppercase tracking-tighter leading-none mb-10">UNDERWEAR<br/>& PANTIES</h1>
-           <p className="max-w-[600px] text-[14px] text-gray-400 font-medium leading-relaxed uppercase tracking-widest">
+           <p className="max-w-[600px] text-[14px] text-gray-400 font-normal leading-relaxed uppercase tracking-widest">
              Luxury silk and organic cotton. Designed for elegance and comfort.
            </p>
         </div>
@@ -34,3 +34,4 @@ export default function UnderwearPage() {
     </div>
   );
 }
+

@@ -10,7 +10,7 @@ export default function NewInPage() {
   const newProducts = PRODUCTS.filter(p => p.tag === "NEW ARRIVAL").slice(0, 12);
 
   return (
-    <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white flex flex-col items-center">
       <Header />
       <CartDrawer />
       
@@ -18,7 +18,7 @@ export default function NewInPage() {
         <div className="flex flex-col items-center text-center mb-24">
            <span className="text-[12px] font-black tracking-[0.6em] text-gray-300 mb-6 uppercase">Just Dropped</span>
            <h1 className="text-[48px] md:text-[80px] font-black uppercase tracking-tighter leading-none mb-10">THE NEW<br/>ARRIVALS</h1>
-           <p className="max-w-[600px] text-[14px] text-gray-400 font-medium leading-relaxed uppercase tracking-widest">
+           <p className="max-w-[600px] text-[14px] text-gray-400 font-normal leading-relaxed uppercase tracking-widest">
              Discover the latest pieces from our Spring 2026 collection.
            </p>
         </div>
@@ -34,3 +34,4 @@ export default function NewInPage() {
     </div>
   );
 }
+

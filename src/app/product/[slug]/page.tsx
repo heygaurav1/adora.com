@@ -25,10 +25,10 @@ export default function ProductPage() {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-white flex flex-col items-center">
+      <div className="min-h-screen bg-black flex flex-col items-center">
         <Header />
         <div className="flex items-center justify-center h-[60vh]">
-          <p className="text-gray-400 font-medium font-sans italic">The piece you are looking for has been moved or is no longer available.</p>
+          <p className="text-gray-400 font-normal font-sans italic">The piece you are looking for has been moved or is no longer available.</p>
         </div>
         <Footer />
       </div>
@@ -42,19 +42,19 @@ export default function ProductPage() {
     : 0;
 
   return (
-    <div className="min-h-screen bg-white text-black font-sans flex flex-col items-center selection:bg-black selection:text-white pb-20">
+    <div className="min-h-screen bg-black text-white font-sans flex flex-col items-center selection:bg-black selection:text-white pb-20">
       <Header />
       <CartDrawer />
 
       <main className="w-full max-w-[1500px] px-6 md:px-12 py-12 flex flex-col items-center">
         
         {/* Cinematic Breadcrumbs */}
-        <nav className="w-full flex items-center gap-3 mb-12 text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">
-          <Link href="/" className="hover:text-black transition-colors">Home</Link>
+        <nav className="w-full flex items-center gap-3 mb-12 text-[10px] font-normal uppercase tracking-[0.2em] text-gray-400">
+          <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <ChevronRight className="w-3 h-3 opacity-30" />
-          <Link href={`/category/${product.categorySlug}`} className="hover:text-black transition-colors">{product.category}</Link>
+          <Link href={`/category/${product.categorySlug}`} className="hover:text-white transition-colors">{product.category}</Link>
           <ChevronRight className="w-3 h-3 opacity-30" />
-          <span className="text-black">{product.name}</span>
+          <span className="text-white">{product.name}</span>
         </nav>
 
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-32 mb-32">
@@ -71,12 +71,12 @@ export default function ProductPage() {
               {/* Product Badges */}
               <div className="absolute top-8 left-8 flex flex-col gap-4">
                 {product.tag && (
-                  <span className="bg-black text-white px-6 py-2 text-[10px] font-bold uppercase tracking-[0.3em] shadow-xl">
+                  <span className="bg-black text-white px-6 py-2 text-[10px] font-light uppercase tracking-[0.3em] shadow-xl">
                     {product.tag}
                   </span>
                 )}
                 {product.oldPrice && (
-                  <span className="bg-red-600 text-white px-6 py-2 text-[10px] font-bold uppercase tracking-[0.3em] shadow-xl">
+                  <span className="bg-red-600 text-white px-6 py-2 text-[10px] font-light uppercase tracking-[0.3em] shadow-xl">
                     -{discount}% OFF
                   </span>
                 )}
@@ -84,7 +84,7 @@ export default function ProductPage() {
 
               {/* Interaction Hint */}
               <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-zoom-in">
-                 <span className="bg-white/90 backdrop-blur-md px-8 py-4 text-[11px] font-bold uppercase tracking-widest shadow-2xl">
+                 <span className="bg-black/90 backdrop-blur-md px-8 py-4 text-[11px] font-light uppercase tracking-widest shadow-2xl">
                     Click to Zoom
                  </span>
               </div>
@@ -96,7 +96,7 @@ export default function ProductPage() {
                   <img src={product.images[0]} className="w-full h-full object-cover grayscale brightness-95" />
                </div>
                <div className="aspect-[4/5] bg-gray-50 overflow-hidden border border-gray-100 relative flex items-center justify-center">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400">View Detail</span>
+                  <span className="text-[11px] font-light uppercase tracking-widest text-gray-400">View Detail</span>
                </div>
             </div>
           </div>
@@ -109,21 +109,21 @@ export default function ProductPage() {
                  {[...Array(5)].map((_, i) => (
                     <Star key={i} className={`w-3.5 h-3.5 ${i < Math.floor(product.reviews?.rating || 4.5) ? "fill-current" : ""}`} />
                  ))}
-                 <span className="text-[11px] text-gray-300 font-medium uppercase tracking-widest ml-4">
+                 <span className="text-[11px] text-gray-300 font-normal uppercase tracking-widest ml-4">
                     {product.reviews?.count || 120}+ Reviews
                  </span>
               </div>
-              <h1 className="text-[36px] md:text-[52px] font-medium uppercase tracking-tight text-black leading-none mb-6 italic">
+              <h1 className="text-[36px] md:text-[52px] font-normal uppercase tracking-tight text-white leading-none mb-6 italic">
                 {product.name}
               </h1>
-              <p className="text-[15px] text-gray-400 font-medium leading-relaxed uppercase tracking-[0.05em] max-w-[550px]">
+              <p className="text-[15px] text-gray-400 font-normal leading-relaxed uppercase tracking-[0.05em] max-w-[550px]">
                 {product.fabric ? `${product.fabric}. ` : "Luxury construction with sustainable materials. "}
                 Designed for a sophisticated silhouette and timeless appeal.
               </p>
             </div>
 
             <div className="flex items-baseline gap-6 mb-16">
-              <span className="text-[32px] font-semibold text-black tracking-tighter">
+              <span className="text-[32px] font-semibold text-white tracking-tighter">
                 ₹ {product.price.toLocaleString("en-IN")}
               </span>
               {product.oldPrice && (
@@ -131,7 +131,7 @@ export default function ProductPage() {
                   ₹ {product.oldPrice.toLocaleString("en-IN")}
                 </span>
               )}
-              <span className="text-[11px] text-emerald-600 font-bold uppercase tracking-widest ml-auto px-4 py-1.5 bg-emerald-50/50 border border-emerald-100">
+              <span className="text-[11px] text-emerald-600 font-light uppercase tracking-widest ml-auto px-4 py-1.5 bg-emerald-50/50 border border-emerald-100">
                  Price includes all taxes
               </span>
             </div>
@@ -140,12 +140,12 @@ export default function ProductPage() {
             <div className="flex flex-col gap-10 mb-16">
               <div className="flex flex-col gap-6">
                 <div className="flex justify-between items-center">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 flex items-center gap-2">
+                  <span className="text-[11px] font-light uppercase tracking-[0.2em] text-gray-400 flex items-center gap-2">
                      Select Size <Info className="w-3.5 h-3.5 opacity-50" />
                   </span>
                   <button 
                     onClick={() => setShowSizeGuide(true)}
-                    className="text-[11px] text-black font-bold flex items-center gap-2 group"
+                    className="text-[11px] text-white font-light flex items-center gap-2 group"
                   >
                      <Ruler className="w-4 h-4 group-hover:rotate-12 transition-transform" />
                      <span className="border-b border-black pb-0.5">Size Guide</span>
@@ -159,7 +159,7 @@ export default function ProductPage() {
                       className={`h-16 flex items-center justify-center text-[13px] font-semibold transition-all shadow-sm rounded-sm ${
                         selectedSize === size
                           ? "bg-black text-white scale-105"
-                          : "bg-white border border-gray-100 text-gray-500 hover:border-black hover:text-black"
+                          : "bg-black border border-gray-100 text-gray-500 hover:border-black hover:text-white"
                       }`}
                     >
                       {size}
@@ -170,7 +170,7 @@ export default function ProductPage() {
                 <div className="mt-4 p-5 bg-gray-50/50 border border-gray-100 rounded-sm">
                    <p className="text-[12px] text-gray-500 flex items-center gap-3">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                      <span className="font-medium italic">{product.fitNotes || "Relaxed fit, true to size. For an oversized look, size up."}</span>
+                      <span className="font-normal italic">{product.fitNotes || "Relaxed fit, true to size. For an oversized look, size up."}</span>
                    </p>
                    {product.modelInfo && (
                      <p className="text-[12px] text-gray-400 mt-2 ml-5 italic leading-relaxed uppercase tracking-tighter">
@@ -182,8 +182,8 @@ export default function ProductPage() {
 
               {/* Quantity Selector */}
               <div className="flex flex-col gap-4">
-                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">Quantity</span>
-                 <div className="flex items-center border border-gray-100 bg-white w-48 h-14 shadow-sm">
+                 <span className="text-[11px] font-light uppercase tracking-[0.2em] text-gray-400">Quantity</span>
+                 <div className="flex items-center border border-gray-100 bg-black w-48 h-14 shadow-sm">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
                       className="flex-1 h-full flex items-center justify-center hover:bg-gray-50"
@@ -209,14 +209,14 @@ export default function ProductPage() {
                         if (!selectedSize) return alert("Please select a size");
                         addToCart(product, selectedSize);
                     }}
-                    className="flex-[4] h-[75px] bg-black text-white text-[13px] font-bold uppercase tracking-[0.3em] shadow-[0_15px_30px_rgba(0,0,0,0.15)] hover:bg-gray-900 transition-all flex items-center justify-center rounded-sm"
+                    className="flex-[4] h-[75px] bg-black text-white text-[13px] font-light uppercase tracking-[0.3em] shadow-[0_15px_30px_rgba(0,0,0,0.15)] hover:bg-gray-900 transition-all flex items-center justify-center rounded-sm"
                 >
                     Add To Bag
                 </button>
                 <button
                     onClick={() => toggleWishlist(product)}
                     className={`flex-1 h-[75px] border border-gray-200 flex items-center justify-center transition-all rounded-sm ${
-                        wishlisted ? "text-red-600 bg-red-50 border-red-200" : "text-black bg-white hover:border-black hover:bg-gray-50"
+                        wishlisted ? "text-red-600 bg-red-50 border-red-200" : "text-white bg-black hover:border-black hover:bg-gray-50"
                     }`}
                 >
                     <Heart className={`w-6 h-6 ${wishlisted ? "fill-current" : ""}`} strokeWidth={1} />
@@ -227,7 +227,7 @@ export default function ProductPage() {
                 href="/checkout"
                 className="w-full h-[75px] border border-black bg-black hover:bg-gray-900 transition-all rounded-sm flex items-center justify-center group"
               >
-                <span className="text-white text-[13px] font-bold uppercase tracking-[0.3em]">
+                <span className="text-white text-[13px] font-light uppercase tracking-[0.3em]">
                   Express Checkout
                 </span>
               </Link>
@@ -238,29 +238,29 @@ export default function ProductPage() {
                <div className="flex items-start gap-4">
                   <Truck className="w-5 h-5 text-gray-400" strokeWidth={1} />
                   <div>
-                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-black mb-1">Free Delivery</h4>
-                    <p className="text-[10px] text-gray-400 font-medium uppercase tracking-[0.05em]">Worldwide • 2-4 Days</p>
+                    <h4 className="text-[10px] font-light uppercase tracking-widest text-white mb-1">Free Delivery</h4>
+                    <p className="text-[10px] text-gray-400 font-normal uppercase tracking-[0.05em]">Worldwide • 2-4 Days</p>
                   </div>
                </div>
                <div className="flex items-start gap-4">
                   <RotateCcw className="w-5 h-5 text-gray-400" strokeWidth={1} />
                   <div>
-                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-black mb-1">Hassle Free</h4>
-                    <p className="text-[10px] text-gray-400 font-medium uppercase tracking-[0.05em]">14 Day Boutique Returns</p>
+                    <h4 className="text-[10px] font-light uppercase tracking-widest text-white mb-1">Hassle Free</h4>
+                    <p className="text-[10px] text-gray-400 font-normal uppercase tracking-[0.05em]">14 Day Boutique Returns</p>
                   </div>
                </div>
                <div className="flex items-start gap-4">
                   <ShieldCheck className="w-5 h-5 text-gray-400" strokeWidth={1} />
                   <div>
-                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-black mb-1">Secure Pay</h4>
-                    <p className="text-[10px] text-gray-400 font-medium uppercase tracking-[0.05em]">PCI-DSS Compliant</p>
+                    <h4 className="text-[10px] font-light uppercase tracking-widest text-white mb-1">Secure Pay</h4>
+                    <p className="text-[10px] text-gray-400 font-normal uppercase tracking-[0.05em]">PCI-DSS Compliant</p>
                   </div>
                </div>
                <div className="flex items-start gap-4">
                   <Star className="w-5 h-5 text-emerald-600" strokeWidth={1} />
                   <div>
-                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 mb-1">Eco-Luxe</h4>
-                    <p className="text-[10px] text-emerald-600/60 font-medium uppercase tracking-[0.05em]">Certified Sustainable</p>
+                    <h4 className="text-[10px] font-light uppercase tracking-widest text-emerald-600 mb-1">Eco-Luxe</h4>
+                    <p className="text-[10px] text-emerald-600/60 font-normal uppercase tracking-[0.05em]">Certified Sustainable</p>
                   </div>
                </div>
             </div>
@@ -286,7 +286,7 @@ export default function ProductPage() {
                     className="w-full py-8 flex items-center justify-between group"
                   >
                     <span className="text-[12px] font-semibold uppercase tracking-[0.25em]">{section.title}</span>
-                    <ChevronRight className={`w-4 h-4 text-gray-300 group-hover:text-black transition-transform ${activeTab === section.id ? "rotate-90 pointer-events-none" : ""}`} />
+                    <ChevronRight className={`w-4 h-4 text-gray-300 group-hover:text-white transition-transform ${activeTab === section.id ? "rotate-90 pointer-events-none" : ""}`} />
                   </button>
                   {activeTab === section.id && (
                     <div className="pb-10 animate-fade-in pr-8">
@@ -306,8 +306,8 @@ export default function ProductPage() {
         {related.length > 0 && (
           <div className="w-full pt-40 border-t border-gray-50 flex flex-col items-center">
             <div className="flex flex-col items-center mb-24 gap-4">
-               <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-gray-300">Curated For You</span>
-               <h2 className="text-[28px] md:text-[36px] font-medium uppercase tracking-widest text-center italic">Complete The Look</h2>
+               <span className="text-[10px] font-light uppercase tracking-[0.5em] text-gray-300">Curated For You</span>
+               <h2 className="text-[28px] md:text-[36px] font-normal uppercase tracking-widest text-center italic">Complete The Look</h2>
             </div>
             <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-12 md:gap-20">
               {related.slice(0, 4).map(p => (
@@ -322,16 +322,16 @@ export default function ProductPage() {
       {/* SIZE GUIDE MODAL */}
       {showSizeGuide && (
         <div className="fixed inset-0 z-[1000] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
-           <div className="bg-white w-full max-w-[800px] p-12 relative shadow-2xl rounded-sm">
+           <div className="bg-black w-full max-w-[800px] p-12 relative shadow-2xl rounded-sm">
               <button 
                 onClick={() => setShowSizeGuide(false)}
-                className="absolute top-8 right-8 text-black hover:opacity-50 transition-all"
+                className="absolute top-8 right-8 text-white hover:opacity-50 transition-all"
               >
                 <X className="w-6 h-6" />
               </button>
               
               <div className="flex flex-col items-center mb-16">
-                 <h2 className="text-[24px] font-medium uppercase tracking-[0.3em] mb-4">Size Guide</h2>
+                 <h2 className="text-[24px] font-normal uppercase tracking-[0.3em] mb-4">Size Guide</h2>
                  <p className="text-[11px] text-gray-400 uppercase tracking-widest italic">All measurements in cm</p>
               </div>
 
@@ -339,11 +339,11 @@ export default function ProductPage() {
                  <table className="w-full border-collapse">
                     <thead>
                        <tr className="border-b border-black">
-                          <th className="py-6 text-left text-[11px] uppercase tracking-widest font-bold">Size</th>
-                          <th className="py-6 text-left text-[11px] uppercase tracking-widest font-bold">Chest</th>
-                          <th className="py-6 text-left text-[11px] uppercase tracking-widest font-bold">Length</th>
-                          <th className="py-6 text-left text-[11px] uppercase tracking-widest font-bold">Shoulder</th>
-                          <th className="py-6 text-left text-[11px] uppercase tracking-widest font-bold">Sleeve</th>
+                          <th className="py-6 text-left text-[11px] uppercase tracking-widest font-light">Size</th>
+                          <th className="py-6 text-left text-[11px] uppercase tracking-widest font-light">Chest</th>
+                          <th className="py-6 text-left text-[11px] uppercase tracking-widest font-light">Length</th>
+                          <th className="py-6 text-left text-[11px] uppercase tracking-widest font-light">Shoulder</th>
+                          <th className="py-6 text-left text-[11px] uppercase tracking-widest font-light">Sleeve</th>
                        </tr>
                     </thead>
                     <tbody>
@@ -354,7 +354,7 @@ export default function ProductPage() {
                          { size: "XL", chest: "114-118", length: "76", shoulder: "50", sleeve: "66" }
                        ]).map(row => (
                           <tr key={row.size} className="border-b border-gray-50 hover:bg-gray-50 transition-colors">
-                             <td className="py-6 text-[13px] font-bold text-black">{row.size}</td>
+                             <td className="py-6 text-[13px] font-light text-white">{row.size}</td>
                              <td className="py-6 text-[13px] text-gray-500">{row.chest}</td>
                              <td className="py-6 text-[13px] text-gray-500">{row.length}</td>
                              <td className="py-6 text-[13px] text-gray-500">{row.shoulder}</td>
@@ -367,13 +367,13 @@ export default function ProductPage() {
 
               <div className="mt-16 p-8 bg-gray-50 border border-gray-100 flex flex-col md:flex-row gap-10">
                  <div className="flex-1">
-                    <h4 className="text-[11px] font-bold uppercase tracking-widest mb-4">How to Measure</h4>
+                    <h4 className="text-[11px] font-light uppercase tracking-widest mb-4">How to Measure</h4>
                     <p className="text-[12px] text-gray-400 leading-relaxed italic uppercase tracking-tighter">
                        Measure around the fullest part of your chest, keeping the tape horizontal. For length, measure from the high point of the shoulder down to the hem.
                     </p>
                  </div>
                  <div className="flex-1 flex items-center justify-center">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-300">Size Diagram Visual</span>
+                    <span className="text-[10px] font-light uppercase tracking-[0.4em] text-gray-300">Size Diagram Visual</span>
                  </div>
               </div>
            </div>

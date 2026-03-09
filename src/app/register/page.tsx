@@ -37,10 +37,10 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white flex flex-col items-center justify-center relative overflow-hidden">
       
       {/* Background Decorative Blur */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-black/5 blur-[120px] rounded-full pointer-events-none" />
 
       {/* Top Brand Logo */}
       <div className="absolute top-12 flex flex-col items-center z-10 transition-opacity hover:opacity-80">
@@ -107,7 +107,7 @@ export default function RegisterPage() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full h-14 bg-white text-black rounded-xl text-[14px] font-normal tracking-wide hover:bg-gray-200 transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
+            className="w-full h-14 bg-black text-white rounded-xl text-[14px] font-normal tracking-wide hover:bg-gray-200 transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
           >
             {loading ? "Creating..." : "Register"}
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -148,3 +148,4 @@ export default function RegisterPage() {
     </div>
   );
 }
+

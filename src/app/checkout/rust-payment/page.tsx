@@ -10,10 +10,10 @@ import Link from "next/link";
 export default function RustCheckoutDemo() {
   return (
     <div className="min-h-screen bg-[#fafafa] flex flex-col items-center justify-center py-20 px-6 font-sans">
-      <div className="w-full max-w-[500px] bg-white rounded-3xl p-10 md:p-14 shadow-2xl border border-gray-100 flex flex-col items-center text-center">
+      <div className="w-full max-w-[500px] bg-black rounded-3xl p-10 md:p-14 shadow-2xl border border-gray-100 flex flex-col items-center text-center">
         
         {/* Adora Branded Header */}
-        <Link href="/" className="mb-10 text-gray-400 hover:text-black transition-colors flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest">
+        <Link href="/" className="mb-10 text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-[10px] font-light uppercase tracking-widest">
             <ArrowLeft className="w-4 h-4" /> Go back
         </Link>
 
@@ -28,7 +28,7 @@ export default function RustCheckoutDemo() {
         <h1 className="text-[24px] font-light lowercase tracking-tight text-gray-900 mb-2 first-letter:uppercase italic">
           Sage Olive Bomber Jacket
         </h1>
-        <p className="text-[12px] text-gray-400 mb-10 uppercase tracking-[0.2em] font-medium">
+        <p className="text-[12px] text-gray-400 mb-10 uppercase tracking-[0.2em] font-normal">
           Premium Italian Lambskin — $31.00
         </p>
 
@@ -47,7 +47,7 @@ export default function RustCheckoutDemo() {
                     <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
-                   <h3 className="text-[11px] font-bold uppercase tracking-wider text-gray-900">
+                   <h3 className="text-[11px] font-light uppercase tracking-wider text-gray-900">
                      Powered by Rust (Axum)
                    </h3>
                    <p className="text-[12px] text-gray-400 mt-1 leading-relaxed">
@@ -61,7 +61,7 @@ export default function RustCheckoutDemo() {
                     <Gem className="w-6 h-6" />
                 </div>
                 <div>
-                   <h3 className="text-[11px] font-bold uppercase tracking-wider text-gray-900">
+                   <h3 className="text-[11px] font-light uppercase tracking-wider text-gray-900">
                      Stripe Checkout Flow
                    </h3>
                    <p className="text-[12px] text-gray-400 mt-1 leading-relaxed">
@@ -72,7 +72,7 @@ export default function RustCheckoutDemo() {
         </div>
       </div>
 
-      <p className="mt-12 text-[10px] text-gray-300 font-bold uppercase tracking-[0.3em]">
+      <p className="mt-12 text-[10px] text-gray-300 font-light uppercase tracking-[0.3em]">
         ADORA — Effortless Luxury & Performance
       </p>
     </div>

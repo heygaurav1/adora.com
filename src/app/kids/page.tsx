@@ -9,7 +9,7 @@ import { PRODUCTS } from "@/data";
 
 export default function KidsPage() {
   return (
-    <div className="min-h-screen bg-white text-black font-sans flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white font-sans flex flex-col items-center">
       <Header />
       <CartDrawer />
       <main className="w-full max-w-[1400px] px-4 md:px-8 py-20 flex flex-col items-center">
@@ -27,3 +27,4 @@ export default function KidsPage() {
     </div>
   );
 }
+

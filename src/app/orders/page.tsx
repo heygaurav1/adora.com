@@ -9,7 +9,7 @@ import { ShoppingBag } from "lucide-react";
 
 export default function OrdersPage() {
   return (
-    <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white flex flex-col items-center">
       <Header />
       <CartDrawer />
       <main className="w-full max-w-[1400px] px-8 py-40 flex flex-col items-center justify-center text-center">
@@ -17,7 +17,7 @@ export default function OrdersPage() {
            <ShoppingBag className="w-12 h-12 text-gray-200" strokeWidth={1.5} />
         </div>
         <h1 className="text-[32px] md:text-[48px] font-black uppercase tracking-tight mb-4">My Dashboard</h1>
-        <p className="text-[13px] text-gray-400 mb-12 max-w-md uppercase tracking-widest font-medium">
+        <p className="text-[13px] text-gray-400 mb-12 max-w-md uppercase tracking-widest font-normal">
           You haven't placed any luxury orders yet. Discover our new arrivals to start your journey.
         </p>
         <Link 
@@ -32,3 +32,4 @@ export default function OrdersPage() {
     </div>
   );
 }
+
