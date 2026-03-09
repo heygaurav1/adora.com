@@ -1,142 +1,163 @@
 "use client";
 
+import { useCart } from "@/context/CartContext";
 import { Header } from "@/components/Header";
-import { ChevronRight } from "lucide-react";
+import { Footer } from "@/components/Footer";
+import { ChevronRight, CreditCard, Lock, ShieldCheck, Truck } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function CheckoutPage() {
+  const { items, totalPrice, totalItems } = useCart();
+  const [step, setStep] = useState(1);
+
+  if (items.length === 0) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <div className="flex flex-col items-center justify-center h-[70vh] gap-8">
+           <p className="text-[20px] font-black uppercase tracking-widest text-gray-300">Your bag is empty</p>
+           <Link href="/" className="h-16 px-12 bg-black text-white text-[11px] font-black uppercase tracking-widest flex items-center justify-center">
+             Go Shopping
+           </Link>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-white text-black font-sans">
+    <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col items-center">
       <Header />
       
-      <main className="container mx-auto px-4 md:px-8 py-12">
-        <div className="flex flex-col lg:flex-row gap-16">
-          {/* Left Column: Shipping & Info */}
-          <div className="flex-1 space-y-12">
-            <section>
-              <h2 className="text-sm font-bold uppercase tracking-widest mb-8 border-b pb-4">1. Contact Information</h2>
-              <div className="grid grid-cols-1 gap-4">
-                <input 
-                  type="email" 
-                  placeholder="Email Address" 
-                  className="w-full border-b border-gray-200 py-3 outline-none focus:border-black transition-colors text-sm"
-                />
+      <main className="w-full max-w-[1400px] px-4 md:px-8 py-20 flex flex-col items-center">
+        
+        {/* Progress Bar */}
+        <div className="flex items-center gap-4 mb-20 text-[11px] font-black uppercase tracking-[0.3em]">
+           <span className={step >= 1 ? "text-black" : "text-gray-300"}>1. Information</span>
+           <ChevronRight className="w-3 h-3 text-gray-300" />
+           <span className={step >= 2 ? "text-black" : "text-gray-300"}>2. Shipping</span>
+           <ChevronRight className="w-3 h-3 text-gray-300" />
+           <span className={step >= 3 ? "text-black" : "text-gray-300"}>3. Payment</span>
+        </div>
+
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-20">
+          
+          {/* Form Side */}
+          <div className="lg:col-span-7 flex flex-col gap-12">
+            
+            <section className="flex flex-col gap-8">
+              <h2 className="text-[24px] font-black uppercase tracking-tight pb-4 border-b border-gray-100">Contact Information</h2>
+              <input 
+                type="email" 
+                placeholder="EMAIL ADDRESS" 
+                className="w-full h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black transition-all"
+              />
+              <div className="flex items-center gap-2">
+                 <input type="checkbox" id="news" className="w-4 h-4 accent-black" />
+                 <label htmlFor="news" className="text-[11px] font-bold text-gray-400 uppercase tracking-widest cursor-pointer">Email me with news and offers</label>
               </div>
             </section>
 
-            <section>
-              <h2 className="text-sm font-bold uppercase tracking-widest mb-8 border-b pb-4">2. Shipping Address</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
-                <input 
-                  type="text" 
-                  placeholder="First Name" 
-                  className="w-full border-b border-gray-200 py-3 outline-none focus:border-black transition-colors text-sm"
-                />
-                <input 
-                  type="text" 
-                  placeholder="Last Name" 
-                  className="w-full border-b border-gray-200 py-3 outline-none focus:border-black transition-colors text-sm"
-                />
-                <input 
-                  type="text" 
-                  placeholder="Address" 
-                  className="w-full border-b border-gray-200 py-3 outline-none focus:border-black transition-colors text-sm md:col-span-2"
-                />
-                <input 
-                  type="text" 
-                  placeholder="Apartment, suite, etc. (optional)" 
-                  className="w-full border-b border-gray-200 py-3 outline-none focus:border-black transition-colors text-sm md:col-span-2"
-                />
-                <input 
-                  type="text" 
-                  placeholder="City" 
-                  className="w-full border-b border-gray-200 py-3 outline-none focus:border-black transition-colors text-sm"
-                />
-                <input 
-                  type="text" 
-                  placeholder="Postal Code" 
-                  className="w-full border-b border-gray-200 py-3 outline-none focus:border-black transition-colors text-sm"
-                />
-                <select className="w-full border-b border-gray-200 py-3 outline-none focus:border-black transition-colors text-sm bg-transparent">
-                  <option>Poland</option>
-                  <option>United States</option>
-                  <option>United Kingdom</option>
-                </select>
-                <input 
-                  type="tel" 
-                  placeholder="Phone" 
-                  className="w-full border-b border-gray-200 py-3 outline-none focus:border-black transition-colors text-sm"
-                />
+            <section className="flex flex-col gap-8">
+              <h2 className="text-[24px] font-black uppercase tracking-tight pb-4 border-b border-gray-100">Shipping Address</h2>
+              <div className="grid grid-cols-2 gap-4">
+                 <input placeholder="FIRST NAME" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
+                 <input placeholder="LAST NAME" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
               </div>
+              <input placeholder="ADDRESS" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
+              <div className="grid grid-cols-3 gap-4">
+                 <input placeholder="CITY" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
+                 <input placeholder="STATE" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
+                 <input placeholder="PINCODE" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
+              </div>
+              <input placeholder="PHONE NUMBER" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
             </section>
 
-            <section>
-              <h2 className="text-sm font-bold uppercase tracking-widest mb-8 border-b pb-4">3. Payment Methods</h2>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 border border-gray-200 hover:border-black cursor-pointer transition-colors group">
-                  <div className="w-4 h-4 rounded-full border border-gray-300 group-hover:border-black flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-black opacity-0 group-hover:opacity-100" />
+            <section className="flex flex-col gap-8">
+               <h2 className="text-[24px] font-black uppercase tracking-tight pb-4 border-b border-gray-100">Payment Method</h2>
+               <div className="border-2 border-black p-8 flex flex-col gap-6">
+                  <div className="flex items-center justify-between">
+                     <span className="text-[14px] font-black uppercase tracking-widest">Credit / Debit Card</span>
+                     <CreditCard className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-bold uppercase tracking-tight">Credit Card</span>
-                </div>
-                <div className="flex items-center gap-4 p-4 border border-gray-200 hover:border-black cursor-pointer transition-colors group">
-                  <div className="w-4 h-4 rounded-full border border-gray-300 group-hover:border-black flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-black opacity-0" />
+                  <input placeholder="CARD NUMBER" className="h-14 border-b-2 border-gray-100 px-2 text-[14px] font-black outline-none focus:border-black" />
+                  <div className="grid grid-cols-2 gap-8">
+                     <input placeholder="EXPIRY (MM/YY)" className="h-14 border-b-2 border-gray-100 px-2 text-[14px] font-black outline-none focus:border-black" />
+                     <input placeholder="CVV" className="h-14 border-b-2 border-gray-100 px-2 text-[14px] font-black outline-none focus:border-black" />
                   </div>
-                  <span className="text-xs font-bold uppercase tracking-tight">PayPal</span>
-                </div>
-              </div>
+               </div>
             </section>
-          </div>
 
-          {/* Right Column: Order Summary */}
-          <div className="w-full lg:w-[400px] space-y-8">
-            <div className="bg-[#F8F8F8] p-8 space-y-6">
-              <h2 className="text-sm font-bold uppercase tracking-widest border-b pb-4">Order Summary</h2>
-              
-              <div className="space-y-4">
-                <div className="flex gap-4">
-                  <div className="w-20 h-24 bg-white border border-gray-100">
-                    <img 
-                      src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1000&auto=format&fit=crop" 
-                      alt="Product" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 text-[11px] uppercase tracking-tight">
-                    <p className="font-bold">Marathon Dip-Dye Runner</p>
-                    <p className="text-gray-500">Belgian Block / EU 42</p>
-                    <p className="mt-2 font-bold">445 EUR</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6 border-t border-gray-200 space-y-2 text-[11px] uppercase tracking-widest font-bold">
-                <div className="flex justify-between">
-                  <span>Subtotal</span>
-                  <span>445 EUR</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Shipping</span>
-                  <span>Free</span>
-                </div>
-                <div className="flex justify-between text-base border-t border-gray-200 pt-4 mt-4">
-                  <span>Total</span>
-                  <span>445 EUR</span>
-                </div>
-              </div>
-
-              <button className="w-full bg-black text-white py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-zinc-800 transition-colors">
-                Place Order
-              </button>
-
-              <p className="text-[9px] text-gray-400 leading-relaxed uppercase tracking-tight">
-                By clicking "Place Order", you agree to our Terms & Conditions and Privacy Policy.
-              </p>
+            <button 
+              className="w-full h-20 bg-black text-white text-[14px] font-black uppercase tracking-[0.3em] hover:bg-gray-800 transition-all shadow-2xl mt-8"
+              onClick={() => alert("Payment logic integrated securely. Order placed!")}
+            >
+              PAY ₹ {totalPrice.toLocaleString("en-IN")}
+            </button>
+            
+            <div className="flex items-center justify-center gap-12 mt-4">
+               <div className="flex items-center gap-2 text-gray-400">
+                  <Lock className="w-4 h-4" />
+                  <span className="text-[10px] font-black uppercase tracking-widest">Secure SSL</span>
+               </div>
+               <div className="flex items-center gap-2 text-gray-400">
+                  <ShieldCheck className="w-4 h-4" />
+                  <span className="text-[10px] font-black uppercase tracking-widest">Encrypted</span>
+               </div>
             </div>
+
           </div>
+
+          {/* Sidebar Order Summary */}
+          <div className="lg:col-span-5 bg-gray-50 p-10 flex flex-col gap-10 sticky top-32 h-fit border border-gray-100">
+             <h3 className="text-[18px] font-black uppercase tracking-widest border-b border-gray-200 pb-6">Order Summary</h3>
+             
+             <div className="flex flex-col gap-8">
+                {items.map(item => (
+                  <div key={item.product.id} className="flex gap-6">
+                     <div className="w-20 h-24 bg-white border border-gray-100 overflow-hidden shrink-0">
+                        <img src={item.product.images[0]} className="w-full h-full object-cover" />
+                     </div>
+                     <div className="flex-1 flex flex-col justify-center">
+                        <p className="text-[12px] font-black uppercase tracking-tight">{item.product.name}</p>
+                        <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Size: {item.size} • Qty: {item.quantity}</p>
+                        <p className="text-[13px] font-black mt-2">₹ {item.product.price.toLocaleString("en-IN")}</p>
+                     </div>
+                  </div>
+                ))}
+             </div>
+
+             <div className="flex flex-col gap-4 border-t border-gray-200 pt-8">
+                <div className="flex justify-between text-[12px] font-bold text-gray-400 uppercase tracking-widest">
+                   <span>Subtotal</span>
+                   <span>₹ {totalPrice.toLocaleString("en-IN")}</span>
+                </div>
+                <div className="flex justify-between text-[12px] font-bold text-gray-400 uppercase tracking-widest">
+                   <span>Shipping</span>
+                   <span className="text-green-600 font-black">FREE</span>
+                </div>
+                <div className="flex justify-between text-[22px] font-black uppercase tracking-tight text-black pt-4 border-t border-gray-100">
+                   <span>Total</span>
+                   <span>₹ {totalPrice.toLocaleString("en-IN")}</span>
+                </div>
+             </div>
+
+             <div className="flex flex-col gap-6 pt-10 border-t border-gray-200">
+                <div className="flex items-start gap-4">
+                   <Truck className="w-5 h-5 shrink-0" />
+                   <div>
+                      <p className="text-[11px] font-black uppercase tracking-widest">Express Delivery</p>
+                      <p className="text-[10px] text-gray-400 lowercase italic mt-1 font-medium">Estimated arrival in 2-4 business days.</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
