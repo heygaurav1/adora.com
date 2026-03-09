@@ -8,8 +8,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function CheckoutPage() {
-  const { items, totalPrice, totalItems } = useCart();
+  const { items, totalPrice } = useCart();
   const [step, setStep] = useState(1);
+  const [paymentMethod, setPaymentMethod] = useState<"card" | "cod">("card");
 
   if (items.length === 0) {
     return (
@@ -46,6 +47,24 @@ export default function CheckoutPage() {
           {/* Form Side */}
           <div className="lg:col-span-7 flex flex-col gap-12">
             
+            {/* Express Checkout / Fast Pay */}
+            <section className="flex flex-col gap-6">
+              <h2 className="text-[11px] font-bold text-gray-400 uppercase tracking-[0.3em] text-center italic mb-4">Express Checkout — One Click</h2>
+              <div className="grid grid-cols-2 gap-4">
+                 <button className="h-16 bg-black text-white rounded-xl flex items-center justify-center gap-3 hover:bg-zinc-900 transition-all border border-black shadow-lg">
+                    <span className="text-[16px] font-bold">Apple Pay</span>
+                 </button>
+                 <button className="h-16 bg-white text-black border-2 border-gray-100 rounded-xl flex items-center justify-center gap-3 hover:border-black transition-all shadow-md">
+                    <span className="text-[16px] font-bold">Google Pay</span>
+                 </button>
+              </div>
+              <div className="flex items-center gap-6 my-4">
+                 <div className="h-[1px] flex-1 bg-gray-100"></div>
+                 <span className="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">OR CONTINUE WITH</span>
+                 <div className="h-[1px] flex-1 bg-gray-100"></div>
+              </div>
+            </section>
+
             <section className="flex flex-col gap-8">
               <h2 className="text-[24px] font-black uppercase tracking-tight pb-4 border-b border-gray-100">Contact Information</h2>
               <input 
@@ -62,38 +81,74 @@ export default function CheckoutPage() {
             <section className="flex flex-col gap-8">
               <h2 className="text-[24px] font-black uppercase tracking-tight pb-4 border-b border-gray-100">Shipping Address</h2>
               <div className="grid grid-cols-2 gap-4">
-                 <input placeholder="FIRST NAME" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
-                 <input placeholder="LAST NAME" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
+                 <input placeholder="FIRST NAME" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black transition-all" />
+                 <input placeholder="LAST NAME" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black transition-all" />
               </div>
-              <input placeholder="ADDRESS" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
+              <input placeholder="ADDRESS" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black transition-all" />
               <div className="grid grid-cols-3 gap-4">
-                 <input placeholder="CITY" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
-                 <input placeholder="STATE" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
-                 <input placeholder="PINCODE" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
+                 <input placeholder="CITY" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black transition-all" />
+                 <input placeholder="STATE" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black transition-all" />
+                 <input placeholder="PINCODE" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black transition-all" />
               </div>
-              <input placeholder="PHONE NUMBER" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black" />
+              <input placeholder="PHONE NUMBER" className="h-16 border-2 border-gray-100 px-6 text-[14px] font-black uppercase outline-none focus:border-black transition-all" />
             </section>
 
             <section className="flex flex-col gap-8">
                <h2 className="text-[24px] font-black uppercase tracking-tight pb-4 border-b border-gray-100">Payment Method</h2>
-               <div className="border-2 border-black p-8 flex flex-col gap-6">
-                  <div className="flex items-center justify-between">
-                     <span className="text-[14px] font-black uppercase tracking-widest">Credit / Debit Card</span>
-                     <CreditCard className="w-5 h-5" />
-                  </div>
-                  <input placeholder="CARD NUMBER" className="h-14 border-b-2 border-gray-100 px-2 text-[14px] font-black outline-none focus:border-black" />
-                  <div className="grid grid-cols-2 gap-8">
-                     <input placeholder="EXPIRY (MM/YY)" className="h-14 border-b-2 border-gray-100 px-2 text-[14px] font-black outline-none focus:border-black" />
-                     <input placeholder="CVV" className="h-14 border-b-2 border-gray-100 px-2 text-[14px] font-black outline-none focus:border-black" />
-                  </div>
+               <div className="flex flex-col gap-4">
+                 {/* Card Option */}
+                 <div 
+                   onClick={() => setPaymentMethod("card")}
+                   className={`border-2 p-8 flex flex-col gap-6 cursor-pointer transition-all ${paymentMethod === "card" ? "border-black bg-gray-50/50" : "border-gray-100 hover:border-gray-200"}`}
+                 >
+                    <div className="flex items-center justify-between">
+                       <div className="flex items-center gap-4">
+                          <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${paymentMethod === "card" ? "border-black" : "border-gray-300"}`}>
+                             {paymentMethod === "card" && <div className="w-2.5 h-2.5 bg-black rounded-full" />}
+                          </div>
+                          <span className="text-[14px] font-black uppercase tracking-widest">Credit / Debit Card</span>
+                       </div>
+                       <CreditCard className="w-5 h-5" />
+                    </div>
+                    {paymentMethod === "card" && (
+                      <div className="flex flex-col gap-6 pt-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                        <input placeholder="CARD NUMBER" className="h-14 border-b-2 border-gray-100 px-2 text-[14px] font-black outline-none focus:border-black bg-transparent" />
+                        <div className="grid grid-cols-2 gap-8">
+                           <input placeholder="EXPIRY (MM/YY)" className="h-14 border-b-2 border-gray-100 px-2 text-[14px] font-black outline-none focus:border-black bg-transparent" />
+                           <input placeholder="CVV" className="h-14 border-b-2 border-gray-100 px-2 text-[14px] font-black outline-none focus:border-black bg-transparent" />
+                        </div>
+                      </div>
+                    )}
+                 </div>
+
+                 {/* COD Option */}
+                 <div 
+                   onClick={() => setPaymentMethod("cod")}
+                   className={`border-2 p-8 flex flex-col gap-6 cursor-pointer transition-all ${paymentMethod === "cod" ? "border-black bg-gray-50/50" : "border-gray-100 hover:border-gray-200"}`}
+                 >
+                    <div className="flex items-center justify-between">
+                       <div className="flex items-center gap-4">
+                          <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${paymentMethod === "cod" ? "border-black" : "border-gray-300"}`}>
+                             {paymentMethod === "cod" && <div className="w-2.5 h-2.5 bg-black rounded-full" />}
+                          </div>
+                          <span className="text-[14px] font-black uppercase tracking-widest">Cash on Delivery (COD)</span>
+                       </div>
+                       <Truck className="w-5 h-5" />
+                    </div>
+                    {paymentMethod === "cod" && (
+                       <p className="text-[11px] text-gray-500 italic mt-2 animate-in fade-in duration-300">
+                         Pay in cash at your doorstep. Standard LA courier delivery.
+                       </p>
+                    )}
+                 </div>
                </div>
             </section>
 
             <button 
-              className="w-full h-20 bg-black text-white text-[14px] font-black uppercase tracking-[0.3em] hover:bg-gray-800 transition-all shadow-2xl mt-8"
-              onClick={() => alert("Payment logic integrated securely. Order placed!")}
+              className="w-full h-20 bg-black text-white text-[14px] font-black uppercase tracking-[0.3em] hover:bg-zinc-800 transition-all shadow-2xl mt-8 active:scale-[0.98]"
+              onClick={() => alert(`Order placed via ${paymentMethod === "card" ? "Card" : "COD"}! Check your email for tracking.`)}
             >
-              PAY ₹ {totalPrice.toLocaleString("en-IN")}
+              {paymentMethod === "cod" ? "PLACE ORDER (COD)" : `PAY ₹ ${totalPrice.toLocaleString("en-IN")}`}
             </button>
             
             <div className="flex items-center justify-center gap-12 mt-4">
