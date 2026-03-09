@@ -26,8 +26,9 @@ export function ProductCard({ product }: ProductCardProps) {
   
   const isEco = product.tag && ECO_TAGS.includes(product.tag);
   const isTrending = product.tag && TRENDING_TAGS.includes(product.tag);
-  const reviewRating = product.reviews?.rating || (4.3 + Math.random() * 0.6);
-  const reviewCount = product.reviews?.count || Math.floor(30 + Math.random() * 180);
+  // Use stable values for SSR consistency
+  const reviewRating = 4.3 + (product.name.length % 7) / 10;
+  const reviewCount = 40 + (product.name.length % 150);
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
