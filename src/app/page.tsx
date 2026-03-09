@@ -8,7 +8,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { CommunitySection } from "@/components/CommunitySection";
 import { PRODUCTS } from "@/data";
 import Link from "next/link";
-import { ChevronRight, Globe, ShieldCheck, Truck, ArrowRight, Star, Leaf, Clock } from "lucide-react";
+import { ChevronRight, Globe, ShieldCheck, Truck, ArrowRight, Star, Leaf, Clock, Gem } from "lucide-react";
 
 export default function Home() {
   const editorsPicks = PRODUCTS.filter(p => ["PREMIUM", "EXCLUSIVE", "ECO"].includes(p.tag || "")).slice(0, 4).length >= 4
@@ -186,11 +186,14 @@ export default function Home() {
                </div>
                <div className="flex flex-col items-center text-center gap-4 group">
                   <div className="w-14 h-14 bg-white border border-gray-100 rounded-full flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all">
-                     <Leaf className="w-5 h-5 text-emerald-600" strokeWidth={1.5} />
+                     <Gem className="w-5 h-5 text-gray-700" strokeWidth={1.5} />
                   </div>
-                  <div className="flex flex-col gap-1.5">
-                     <h4 className="text-[13px] font-semibold text-emerald-700">Carbon Neutral</h4>
-                     <p className="text-[12px] text-gray-500 leading-relaxed">Zero-waste packaging.<br/>Certified sustainable.</p>
+                  <div className="flex flex-col gap-1.5 items-center">
+                     <h4 className="text-[13px] font-semibold text-gray-900 uppercase tracking-widest leading-none">Rust Powered</h4>
+                     <p className="text-[11px] text-gray-400 leading-relaxed max-w-[180px] mt-2 mb-2">Secure, memory-safe backend handling all sensitive payment intents.</p>
+                     <Link href="/checkout/rust-payment" className="text-black text-[10px] font-bold uppercase tracking-[0.2em] border-b border-black/10 pb-0.5 hover:border-black transition-all">
+                        Test Bridge →
+                     </Link>
                   </div>
                </div>
             </div>
