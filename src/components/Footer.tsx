@@ -117,9 +117,9 @@ export function Footer() {
         </div>
 
         {/* Bottom Section: Compliance & Payments */}
-        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-10 border-t border-white/5 pt-16">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-10 border-t border-white/5 pt-16 mb-20">
           <p className="text-[9px] text-zinc-700 uppercase tracking-[0.5em] font-light">
-            © 2026 ADORA GLOBAL • LOS ANGELES EDITION
+            © 2016 - 2026 ADORA S.p.A. - All rights reserved. ADORA LICENCE # 2294/I/1936 and 5647/I/1936
           </p>
           <div className="flex flex-wrap items-center justify-center gap-10 opacity-20 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
             <span className="text-[9px] font-light tracking-[0.4em] text-white">VISA</span>
@@ -127,6 +127,13 @@ export function Footer() {
             <span className="text-[9px] font-light tracking-[0.4em] text-white">AMEX</span>
             <span className="text-[9px] font-light tracking-[0.4em] text-white">APPLE PAY</span>
           </div>
+        </div>
+
+        {/* Massive Gucci-style Branding */}
+        <div className="w-full pt-32 pb-40 flex flex-col items-center justify-center overflow-hidden pointer-events-none select-none">
+           <h2 className="text-[120px] md:text-[220px] lg:text-[320px] font-extralight tracking-[0.2em] text-white leading-none opacity-[0.95] translate-y-10">
+              ADORA
+           </h2>
         </div>
       </div>
     </footer>
