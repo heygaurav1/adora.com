@@ -10,7 +10,7 @@
 
 **Effortless, elevated essentials — crafted for the modern shopper in a deep-black luxury aesthetic.**
 
-[Live Preview](#) · [Report Bug](https://github.com/heygaurav1/adora.com/issues) · [Request Feature](https://github.com/heygaurav1/adora.com/issues)
+[Live Preview]((https://adora-com-w68u.vercel.app/)) · [Report Bug](https://github.com/heygaurav1/adora.com/issues) · [Request Feature](https://github.com/heygaurav1/adora.com/issues)
 
 </div>
 
