@@ -13,7 +13,7 @@ export default function KidsPage() {
       <Header />
       <CartDrawer />
       <main className="w-full max-w-[1400px] px-4 md:px-8 py-20 flex flex-col items-center">
-        <h1 className="text-[32px] md:text-[42px] font-black uppercase tracking-[0.2em] mb-16 text-center border-b-4 border-black pb-4">
+        <h1 className="text-[32px] md:text-[42px] font-light uppercase tracking-[0.2em] mb-16 text-center border-b-4 border-black pb-4">
           Kidswear
         </h1>
         <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">

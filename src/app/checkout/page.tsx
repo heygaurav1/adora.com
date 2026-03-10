@@ -52,7 +52,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black flex flex-col items-center">
       <Header />
       
       <main className="w-full max-w-[1400px] px-6 md:px-12 py-20 flex flex-col items-center">

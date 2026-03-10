@@ -12,12 +12,12 @@ export default function MenPage() {
   const products = PRODUCTS.filter(p => !p.name.toLowerCase().includes("woman") && !p.name.toLowerCase().includes("panty"));
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black flex flex-col items-center">
       <Header />
       <CartDrawer />
       
       <main className="w-full max-w-[1500px] px-6 md:px-12 py-20 flex flex-col items-center">
-        <nav className="w-full flex items-center gap-3 mb-16 text-[10px] font-normal uppercase tracking-[0.2em] text-gray-400">
+        <nav className="w-full flex items-center gap-3 mb-16 text-[10px] font-normal uppercase tracking-[0.2em] text-zinc-500">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <ChevronRight className="w-3 h-3 opacity-30" />
           <span className="text-white">Menswear</span>
@@ -25,12 +25,12 @@ export default function MenPage() {
 
         <div className="w-full flex flex-col lg:flex-row justify-between items-end mb-32 gap-12">
            <div className="flex flex-col gap-6">
-              <span className="text-[12px] font-light uppercase tracking-[0.4em] text-gray-400">Contemporary Staples</span>
+              <span className="text-[12px] font-light uppercase tracking-[0.4em] text-zinc-500">Contemporary Staples</span>
               <h1 className="text-[42px] md:text-[64px] font-normal uppercase tracking-tight leading-none text-white italic">
                 Men&apos;s Collection
               </h1>
            </div>
-           <div className="max-w-[450px] text-[14px] text-gray-500 font-normal leading-relaxed uppercase tracking-wider text-right italic">
+           <div className="max-w-[450px] text-[14px] text-zinc-500 font-normal leading-relaxed uppercase tracking-wider text-right italic">
               Empowering the modern wardrobe. Our men&apos;s edit combines sharp architectural tailoring with the effortless comfort of luxury basics.
            </div>
         </div>

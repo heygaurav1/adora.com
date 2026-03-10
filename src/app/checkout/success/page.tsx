@@ -20,7 +20,7 @@ export default function OrderSuccessPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black flex flex-col items-center">
       <Header />
 
       <main className="flex-1 w-full max-w-[800px] px-8 py-24 md:py-40 flex flex-col items-center text-center">

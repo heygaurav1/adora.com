@@ -20,7 +20,7 @@ export default function CategoryPage() {
   const title = collection?.name || (slug as string)?.replace(/-/g, " ") || "All Collections";
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black flex flex-col items-center">
       <Header />
       <CartDrawer />
 

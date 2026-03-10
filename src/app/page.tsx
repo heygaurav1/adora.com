@@ -18,7 +18,7 @@ export default function Home() {
   const saleItems = PRODUCTS.filter(p => p.tag === "SALE" || (p.oldPrice && p.oldPrice > p.price)).slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-black selection:text-white overflow-x-hidden flex flex-col items-center">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black overflow-x-hidden flex flex-col items-center">
       <Header />
       <CartDrawer />
 
