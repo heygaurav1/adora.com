@@ -116,23 +116,38 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section: Compliance & Payments */}
-        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-10 border-t border-white/5 pt-16 mb-20">
-          <p className="text-[9px] text-zinc-700 uppercase tracking-[0.5em] font-light">
-            © 2016 - 2026 ADORA S.p.A. - All rights reserved. ADORA LICENCE # 2294/I/1936 and 5647/I/1936
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-10 opacity-20 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
-            <span className="text-[9px] font-light tracking-[0.4em] text-white">VISA</span>
-            <span className="text-[9px] font-light tracking-[0.4em] text-white">MASTERCARD</span>
-            <span className="text-[9px] font-light tracking-[0.4em] text-white">AMEX</span>
-            <span className="text-[9px] font-light tracking-[0.4em] text-white">APPLE PAY</span>
+        {/* Sub-branding & Compliance Section */}
+        <div className="w-full flex flex-col items-center gap-16 border-t border-white/5 pt-24 mb-16">
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+             <div className="flex items-center gap-2">
+                <span className="text-[12px] font-medium tracking-[0.2em] text-white">ADORA</span>
+                <span className="text-[10px] font-extralight tracking-[0.3em] text-white/60">OSTERIA</span>
+             </div>
+             <div className="flex items-center gap-2">
+                <span className="text-[12px] font-medium tracking-[0.2em] text-white uppercase">Palazzo ADORA</span>
+             </div>
+             <div className="flex items-center gap-2 border border-white/20 px-3 py-1 rounded-full">
+                <span className="text-[10px] font-light tracking-[0.3em] text-white">A</span>
+             </div>
+          </div>
+
+          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-10">
+            <p className="text-[9px] text-zinc-700 uppercase tracking-[0.5em] font-light">
+              © 2016 - 2026 ADORA S.p.A. - All rights reserved. ADORA LICENCE # 2294/I/1936 and 5647/I/1936
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-8 opacity-20 hover:opacity-100 transition-opacity grayscale">
+              <span className="text-[9px] font-light tracking-[0.3em] text-white">VISA</span>
+              <span className="text-[9px] font-light tracking-[0.3em] text-white">MASTERCARD</span>
+              <span className="text-[9px] font-light tracking-[0.3em] text-white">AMEX</span>
+              <span className="text-[9px] font-light tracking-[0.3em] text-white">APPLE PAY</span>
+            </div>
           </div>
         </div>
 
-        {/* Massive Gucci-style Branding */}
+        {/* Massive Branding with Dot */}
         <div className="w-full pt-48 pb-64 flex flex-col items-center justify-center overflow-hidden pointer-events-none select-none">
-           <h2 className="text-[120px] md:text-[220px] lg:text-[320px] font-extralight tracking-[0.2em] text-white leading-none opacity-[0.95] translate-y-20">
-              ADORA
+           <h2 className="text-[120px] md:text-[220px] lg:text-[320px] font-extralight tracking-[0.1em] text-white leading-none opacity-[0.98] translate-y-20 flex items-baseline">
+              ADORA<span className="text-[0.4em] ml-2 translate-y-[-0.1em]">.</span>
            </h2>
         </div>
       </div>
