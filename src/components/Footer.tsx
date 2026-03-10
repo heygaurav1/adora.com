@@ -144,9 +144,9 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Massive Branding with Dot — Perfected Weight and Tracking */}
-        <div className="w-full pt-48 pb-[400px] flex items-center justify-center overflow-visible pointer-events-none select-none">
-           <h2 className="text-[140px] md:text-[240px] lg:text-[28vw] font-bold tracking-[-0.02em] text-white leading-none opacity-[0.98] translate-y-32 flex items-baseline font-serif">
+        {/* Massive Branding with Dot — Refined Scale */}
+        <div className="w-full pt-48 pb-[300px] flex items-center justify-center overflow-visible pointer-events-none select-none">
+           <h2 className="text-[100px] md:text-[180px] lg:text-[22vw] font-bold tracking-[-0.02em] text-white leading-none opacity-[0.98] translate-y-24 flex items-baseline font-serif">
               ADORA<span className="text-[0.45em] ml-0 translate-y-[-0.02em]">.</span>
            </h2>
         </div>

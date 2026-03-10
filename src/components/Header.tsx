@@ -104,8 +104,8 @@ export function Header() {
           </div>
 
           {/* Center: Gucci-style Brand Identity */}
-          <div className="flex-1 flex flex-col items-center">
-            <Link href="/" className="text-[34px] md:text-[52px] font-medium uppercase tracking-[0.2em] text-white leading-none mb-1 font-serif flex items-center justify-center transition-all duration-700 hover:scale-105">
+          <div className="flex-1 flex items-center justify-center">
+            <Link href="/" className="text-[28px] md:text-[44px] font-medium uppercase tracking-[0.18em] text-white leading-none font-serif transition-all duration-700 hover:scale-105">
               ADORA
             </Link>
           </div>
