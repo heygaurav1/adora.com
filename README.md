@@ -1,4 +1,4 @@
-# ADORA — Redefining Luxury E-Commerce
+# ADORA — E-Commerce
 
 <div align="center">
 
@@ -10,6 +10,7 @@
 
 **Effortless, elevated essentials — crafted for the modern shopper in a deep-black luxury aesthetic.**
 <br>
+
 🔗 [Adora](https://adora-com-w68u.vercel.app/)  
 🐞 [Report a Bug](https://github.com/heygaurav1/adora.com/issues)  
 💡 [Request a Feature](https://github.com/heygaurav1/adora.com/issues)
