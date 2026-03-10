@@ -5,6 +5,7 @@
   --color-foreground: var(--foreground);
   --font-sans: "Inter", system-ui, sans-serif;
   --font-display: "Outfit", system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
 }
 
 :root {

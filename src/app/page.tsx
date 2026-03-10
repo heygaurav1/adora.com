@@ -37,7 +37,7 @@ export default function Home() {
               <span className="text-[11px] md:text-[13px] font-normal uppercase tracking-[0.6em] text-white/60 mb-6 animate-fade-in">
                 SS25 Collection — Los Angeles
               </span>
-              <h1 className="text-[38px] md:text-[72px] lg:text-[96px] font-extralight uppercase text-white tracking-widest leading-[1.05] mb-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <h1 className="text-[38px] md:text-[72px] lg:text-[104px] font-medium uppercase text-white tracking-widest leading-[1] mb-12 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] font-serif">
                 The Redefined<br/>Luxury
               </h1>
               <p className="text-[14px] md:text-[16px] text-white/50 font-light max-w-[500px] leading-relaxed mb-12 tracking-wide">
@@ -67,7 +67,7 @@ export default function Home() {
                 <span className="inline-flex items-center gap-2 text-[10px] font-normal uppercase tracking-[0.4em] text-amber-500 bg-amber-500/5 px-4 py-1.5 rounded-full border border-amber-500/20 mb-6">
                   <Star className="w-3 h-3" /> LA Favorites
                 </span>
-                <h2 className="text-[30px] md:text-[48px] font-extralight uppercase tracking-[0.1em] leading-none text-white mb-6">LA Editor&apos;s Edit</h2>
+                <h2 className="text-[30px] md:text-[56px] font-medium uppercase tracking-[0.05em] leading-none text-white mb-6 font-serif">LA Editor&apos;s Edit</h2>
                 <p className="text-[14px] text-white/40 font-light leading-relaxed max-w-[550px] tracking-wide">
                   Effortless coastal luxe — hand-selected pieces from Venice Beach sunsets to Silver Lake brunch. Organic linens, recycled silks, conscious craft.
                 </p>
@@ -123,7 +123,7 @@ export default function Home() {
               <div className="inline-flex items-center gap-2 bg-emerald-500/10 backdrop-blur-md text-emerald-400 text-[10px] font-normal uppercase tracking-[0.4em] px-6 py-2.5 rounded-full mb-10 border border-emerald-500/20">
                 <Leaf className="w-3.5 h-3.5" /> Conscious Luxury
               </div>
-              <h2 className="text-white text-[28px] md:text-[56px] font-extralight uppercase tracking-[0.2em] leading-tight mb-8">
+              <h2 className="text-white text-[28px] md:text-[64px] font-medium uppercase tracking-[0.1em] leading-tight mb-8 font-serif">
                 A Journey into<br/>Sustainable Craft
               </h2>
               <p className="text-white/50 text-[14px] md:text-[15px] leading-relaxed mb-12 max-w-[600px] mx-auto font-light tracking-wide">
@@ -208,7 +208,7 @@ export default function Home() {
                 <Star key={i} className="w-4 h-4 text-amber-500 fill-current" />
               ))}
             </div>
-            <blockquote className="text-[22px] md:text-[34px] font-extralight text-white leading-relaxed italic mb-10 tracking-wide drop-shadow-sm">
+            <blockquote className="text-[22px] md:text-[42px] font-light text-white leading-relaxed italic mb-10 tracking-wide drop-shadow-sm font-serif">
               &quot;ADORA&apos;s bombers are my LA uniform — from Silver Lake to West Hollywood. Effortless, dark luxury.&quot;
             </blockquote>
             <cite className="not-italic text-[11px] font-normal text-white/40 uppercase tracking-[0.5em]">

@@ -29,13 +29,13 @@ const BRAND = [
 
 export function Footer() {
   return (
-    <footer className="w-full bg-black border-t border-white/5 pt-48 pb-24 flex flex-col items-center">
+    <footer className="w-full bg-black border-t border-white/5 pt-48 pb-[300px] flex flex-col items-center">
       <div className="w-full max-w-[1500px] px-6 md:px-12">
         
         {/* Top Section: Branding & Newsletter */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-48 border-b border-white/5 pb-48">
            <div className="flex flex-col gap-8 max-w-[500px]">
-              <h3 className="text-[28px] font-extralight tracking-[0.4em] uppercase text-white">ADORA</h3>
+              <h3 className="text-[28px] font-medium tracking-[0.4em] uppercase text-white font-serif italic">ADORA</h3>
               <p className="text-[13px] text-zinc-500 font-light leading-relaxed uppercase tracking-[0.15em]">
                 Redefining the essence of modern luxury through sustainable craftsmanship and timeless design. Join our global community of conscious connoisseurs.
               </p>
@@ -144,10 +144,10 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Massive Branding with Dot */}
-        <div className="w-full pt-48 pb-64 flex flex-col items-center justify-center overflow-hidden pointer-events-none select-none">
-           <h2 className="text-[120px] md:text-[220px] lg:text-[320px] font-extralight tracking-[0.1em] text-white leading-none opacity-[0.98] translate-y-20 flex items-baseline">
-              ADORA<span className="text-[0.4em] ml-2 translate-y-[-0.1em]">.</span>
+        {/* Massive Branding with Dot — Perfected Weight and Tracking */}
+        <div className="w-full pt-48 pb-[400px] flex items-center justify-center overflow-visible pointer-events-none select-none">
+           <h2 className="text-[140px] md:text-[240px] lg:text-[28vw] font-bold tracking-[-0.02em] text-white leading-none opacity-[0.98] translate-y-32 flex items-baseline font-serif">
+              ADORA<span className="text-[0.45em] ml-0 translate-y-[-0.02em]">.</span>
            </h2>
         </div>
       </div>

@@ -89,49 +89,39 @@ export function Header() {
       <div className="w-full max-w-[1500px] px-6 md:px-12">
         <div className="flex items-center justify-between h-[80px] md:h-[110px]">
           
-          {/* Left: Simplified Navigation */}
-          <nav className="hidden lg:flex items-center gap-12 h-full">
-            {NAVIGATION.map(link => (
-              <div
-                key={link.label}
-                onMouseEnter={() => handleMouseEnter(link.label)}
-                className="h-full flex items-center relative"
-              >
-                <Link 
-                  href={link.href}
-                  className={`text-[11px] font-normal uppercase tracking-[0.3em] transition-all flex items-center gap-1.5 ${
-                    link.isRed ? "text-red-500/80 hover:text-red-400" : "text-white/60 hover:text-white"
-                  } ${link.isUnderlined ? "border-b border-white/40 pb-0.5" : ""}`}
-                >
-                  {link.label}
-                  {link.dropdown && <ChevronDown className={`w-3 h-3 transition-transform duration-500 ${activeMenu === link.label ? "rotate-180" : ""}`} strokeWidth={1} />}
-                </Link>
-              </div>
-            ))}
-          </nav>
-
-          {/* Mobile Menu Toggle */}
-          <button className="lg:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
-          </button>
-
-          {/* Center: Brand Identity */}
-          <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center group cursor-pointer transition-all duration-700 hover:scale-105">
-            <Link href="/" className="text-[28px] md:text-[42px] font-extralight uppercase tracking-[0.5em] text-white leading-none mb-1 md:mb-2 flex items-center justify-center">
-              ADORA
+          {/* Left: Gucci-style Contact Link */}
+          <div className="hidden lg:flex flex-1 items-center">
+            <Link href="/contact" className="text-[10px] font-normal uppercase tracking-[0.4em] text-white/50 hover:text-white transition-all flex items-center gap-2">
+              <span className="text-[14px] translate-y-[-1px] font-light">+</span> Contact Us
             </Link>
-            <span className="text-[8px] md:text-[10px] uppercase tracking-[0.6em] text-white/30 font-light hidden sm:block">The Redefined Luxury</span>
           </div>
 
-          {/* Right: Premium Actions */}
-          <div className="flex items-center justify-end gap-2 md:gap-8 overflow-visible">
-            <button 
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="hidden sm:block hover:opacity-100 transition-opacity p-2"
-            >
-              <Search className="w-5 h-5 text-white/60" strokeWidth={1} />
+          {/* Mobile Menu Toggle (Left on Mobile) */}
+          <div className="lg:hidden flex-1">
+            <button className="p-2" onClick={() => setMobileOpen(!mobileOpen)}>
+              {mobileOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" strokeWidth={1} />}
             </button>
+          </div>
+
+          {/* Center: Gucci-style Brand Identity */}
+          <div className="flex-1 flex flex-col items-center">
+            <Link href="/" className="text-[34px] md:text-[52px] font-medium uppercase tracking-[0.2em] text-white leading-none mb-1 font-serif flex items-center justify-center transition-all duration-700 hover:scale-105">
+              ADORA
+            </Link>
+          </div>
+
+          {/* Right: Premium Actions (Icons then Menu) */}
+          <div className="flex-1 flex items-center justify-end gap-2 md:gap-6 overflow-visible">
             
+            <button onClick={toggleCart} className="relative hover:opacity-100 transition-opacity p-2 hidden xs:block">
+              <ShoppingBag className="w-5 h-5 text-white/60" strokeWidth={1} />
+              {totalItems > 0 && (
+                <span className="absolute top-1 right-1 bg-white text-black text-[7px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-normal">
+                  {totalItems}
+                </span>
+              )}
+            </button>
+
             <div className="relative group/user px-2 hidden md:block">
               {user ? (
                 <div className="h-full flex items-center">
@@ -139,10 +129,7 @@ export function Header() {
                     onClick={() => setUserDropdown(!userDropdown)}
                     className="flex items-center gap-3 text-[10px] font-light uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors"
                   >
-                    <span>{user.displayName?.split(' ')[0] || 'Profile'}</span>
-                    <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center bg-white/5">
-                      <User className="w-3.5 h-3.5 text-white" strokeWidth={1} />
-                    </div>
+                    <User className="w-5 h-5 text-white/60" strokeWidth={1} />
                   </button>
 
                   <AnimatePresence>
@@ -175,16 +162,24 @@ export function Header() {
               )}
             </div>
 
-            <button className="hidden sm:block hover:opacity-100 transition-opacity p-2">
-              <Heart className="w-5 h-5 text-white/60" strokeWidth={1} />
+            <button 
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              className="hover:opacity-100 transition-opacity p-2"
+            >
+              <Search className="w-5 h-5 text-white/60" strokeWidth={1} />
             </button>
-            <button onClick={toggleCart} className="relative hover:opacity-100 transition-opacity p-2">
-              <ShoppingBag className="w-5 h-5 text-white/60" strokeWidth={1} />
-              {totalItems > 0 && (
-                <span className="absolute top-1 right-1 bg-white text-black text-[7px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-normal">
-                  {totalItems}
-                </span>
-              )}
+
+            {/* Gucci-style MENU toggle */}
+            <button 
+              onMouseEnter={() => handleMouseEnter("Women")}
+              className="hidden lg:flex items-center gap-3 ml-2 hover:opacity-100 transition-opacity"
+            >
+              <div className="flex flex-col gap-1 w-5">
+                <div className="h-[1px] w-full bg-white/60"></div>
+                <div className="h-[1px] w-full bg-white/60"></div>
+                <div className="h-[1px] w-full bg-white/60"></div>
+              </div>
+              <span className="text-[10px] font-normal uppercase tracking-[0.4em] text-white/60">Menu</span>
             </button>
           </div>
         </div>

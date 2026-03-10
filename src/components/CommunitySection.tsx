@@ -1,42 +1,29 @@
 "use client";
 
-import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export function CommunitySection() {
   return (
-    <section className="w-full py-28 bg-white flex flex-col items-center border-t border-gray-50">
-      <div className="w-full max-w-[1400px] px-4 md:px-8 flex flex-col items-center">
-        
-        {/* Giant Centered Brand Text */}
-        <div className="w-full text-center mb-16">
-          <h2
-            className="text-[60px] md:text-[120px] lg:text-[180px] font-black uppercase tracking-[-0.05em] text-black leading-none select-none opacity-[0.95]"
-          >
-            ADORA
-          </h2>
-        </div>
-
-        {/* Centered Newsletter with Pill Shape */}
+    <section className="w-full py-48 bg-black flex flex-col items-center">
+      <div className="w-full max-w-[1400px] px-6 md:px-12 flex flex-col items-center">
         <div className="w-full max-w-[600px] flex flex-col items-center text-center">
-          <h3 className="text-[14px] md:text-[16px] font-black uppercase tracking-[0.25em] text-black mb-3">
-            JOIN THE COMMUNITY OF CHANGE MAKERS
+          <span className="text-[10px] font-normal uppercase tracking-[0.5em] text-zinc-600 mb-8">The Studio News</span>
+          <h3 className="text-[32px] md:text-[56px] font-medium uppercase tracking-[0.05em] text-white mb-8 font-serif">
+            Join the Community
           </h3>
-          <p className="text-[11px] md:text-[12px] text-gray-400 mb-10 tracking-wide font-medium">
-            get exclusive deals and early access to new products.
+          <p className="text-[12px] md:text-[13px] text-zinc-500 mb-16 tracking-[0.2em] font-light max-w-[450px] leading-relaxed uppercase">
+            Exclusive access to collections, private events, and our artisanal journey.
           </p>
           
-          <div className="w-full max-w-[520px]">
-            <div className="flex items-center bg-gray-50 rounded-full h-[64px] px-2 border-2 border-transparent focus-within:border-black focus-within:bg-white transition-all shadow-sm">
+          <div className="w-full max-w-[500px] relative">
+            <div className="flex items-center border-b border-white/5 py-4 group focus-within:border-white transition-all duration-700">
               <input
                 type="email"
-                placeholder="EMAIL ADDRESS"
-                className="flex-1 h-full px-8 text-[13px] text-black outline-none bg-transparent placeholder:text-gray-400 font-black tracking-widest"
+                placeholder="ENTER EMAIL ADDRESS"
+                className="flex-1 bg-transparent px-2 text-[12px] text-white outline-none placeholder:text-zinc-800 font-light tracking-[0.4em] uppercase"
               />
-              <button className="h-[48px] w-[48px] bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-all mr-1">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
+              <button className="p-3 text-zinc-600 hover:text-white transition-all group-hover:translate-x-3 duration-700">
+                <ArrowRight className="w-6 h-6" strokeWidth={1} />
               </button>
             </div>
           </div>
