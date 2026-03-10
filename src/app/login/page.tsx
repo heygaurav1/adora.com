@@ -89,9 +89,9 @@ export default function LoginPage() {
            className="bg-zinc-950/40 backdrop-blur-3xl border border-white/5 p-12 py-16 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
         >
           <div className="flex flex-col items-center mb-10">
-            <h1 className="text-[28px] font-extralight tracking-tight mb-3 text-white">Welcome back</h1>
+            <h1 className="text-[28px] font-extralight tracking-tight mb-3 text-white">Login</h1>
             <p className="text-[13px] text-zinc-500 text-center font-light leading-relaxed max-w-[280px]">
-              Securely access your ADORA profile with your credentials.
+              Access your account to continue.
             </p>
           </div>
 
@@ -113,7 +113,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleLogin} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-light pl-1">Email Residency</label>
+              <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-light pl-1">Email Address</label>
               <div className="relative group">
                 <input 
                   type="email" 
@@ -129,7 +129,7 @@ export default function LoginPage() {
 
             <div className="space-y-2">
               <div className="flex justify-between items-center px-1">
-                <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-light">Cipher Access</label>
+                <label className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 font-light">Password</label>
                 <Link href="/forgot" className="text-[10px] text-zinc-500 hover:text-white font-normal tracking-[0.1em] uppercase transition-colors">Forgot Access?</Link>
               </div>
               <div className="relative group">
@@ -151,7 +151,7 @@ export default function LoginPage() {
               className="w-full h-14 bg-white text-black rounded-2xl text-[12px] font-normal uppercase tracking-[0.3em] hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 group shadow-2xl relative overflow-hidden disabled:opacity-50"
             >
               <span className={`flex items-center justify-center gap-2 ${loading ? 'opacity-0' : 'opacity-100'} transition-opacity`}>
-                Enter Private Area
+                Login
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </span>
               {loading && (
