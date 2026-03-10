@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Search, User, ShoppingBag, Heart, Menu, X, ChevronDown } from "lucide-react";
+import { Search, User, ShoppingBag, Heart, Menu, X, ChevronDown, LogOut } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/AuthContext";
 import { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const NAVIGATION = [
   { 
@@ -45,9 +47,11 @@ const NAVIGATION = [
 
 export function Header() {
   const { totalItems, toggleCart } = useCart();
+  const { user, signOut } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [userDropdown, setUserDropdown] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = (label: string) => {
@@ -59,6 +63,11 @@ export function Header() {
     timeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
     }, 150);
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    setUserDropdown(false);
   };
 
   const currentDropdown = NAVIGATION.find(n => n.label === activeMenu)?.dropdown;
@@ -115,16 +124,57 @@ export function Header() {
           </div>
 
           {/* Right: Premium Actions */}
-          <div className="flex items-center justify-end gap-2 md:gap-8">
+          <div className="flex items-center justify-end gap-2 md:gap-8 overflow-visible">
             <button 
               onClick={() => setIsSearchOpen(!isSearchOpen)}
               className="hidden sm:block hover:opacity-100 transition-opacity p-2"
             >
               <Search className="w-5 h-5 text-white/60" strokeWidth={1} />
             </button>
-            <Link href="/login" className="hover:opacity-100 transition-opacity p-2 hidden md:block">
-              <User className="w-5 h-5 text-white/60" strokeWidth={1} />
-            </Link>
+            
+            <div className="relative group/user px-2 hidden md:block">
+              {user ? (
+                <div className="h-full flex items-center">
+                  <button 
+                    onClick={() => setUserDropdown(!userDropdown)}
+                    className="flex items-center gap-3 text-[10px] font-light uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors"
+                  >
+                    <span>{user.displayName?.split(' ')[0] || 'Profile'}</span>
+                    <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center bg-white/5">
+                      <User className="w-3.5 h-3.5 text-white" strokeWidth={1} />
+                    </div>
+                  </button>
+
+                  <AnimatePresence>
+                    {userDropdown && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        className="absolute right-0 top-full mt-4 w-56 bg-zinc-950 border border-white/5 rounded-2xl shadow-2xl p-4 overflow-hidden z-[200]"
+                      >
+                         <div className="flex flex-col gap-1 p-2 border-b border-white/5 mb-2">
+                           <span className="text-[11px] text-white font-normal uppercase tracking-widest">{user.displayName}</span>
+                           <span className="text-[9px] text-zinc-600 font-light lowercase tracking-wider truncate">{user.email}</span>
+                         </div>
+                         <button 
+                           onClick={handleSignOut}
+                           className="w-full flex items-center gap-3 p-3 text-[10px] font-light uppercase tracking-widest text-zinc-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                         >
+                           <LogOut className="w-3.5 h-3.5" strokeWidth={1} />
+                           Sign Out
+                         </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link href="/login" className="hover:opacity-100 transition-opacity p-2 block">
+                  <User className="w-5 h-5 text-white/60" strokeWidth={1} />
+                </Link>
+              )}
+            </div>
+
             <button className="hidden sm:block hover:opacity-100 transition-opacity p-2">
               <Heart className="w-5 h-5 text-white/60" strokeWidth={1} />
             </button>

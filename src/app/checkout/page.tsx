@@ -1,38 +1,63 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { ChevronRight, CreditCard, Lock, ShieldCheck, Truck } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
-
-import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/AuthContext";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ChevronRight, CreditCard, Lock, ShieldCheck, Truck, ShoppingBag, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
+  const { user } = useAuth();
   const [step, setStep] = useState(1);
   const [paymentMethod, setPaymentMethod] = useState<"card" | "cod">("card");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [email, setEmail] = useState(user?.email || "");
   const router = useRouter();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+    if (user?.email) setEmail(user.email);
+  }, [user]);
 
   const handlePlaceOrder = async () => {
     setIsProcessing(true);
-    // Simulate payment processing
-    setTimeout(() => {
-      clearCart();
-      router.push("/checkout/success");
-    }, 2000);
+    
+    try {
+      // Save order to Firestore
+      const orderData = {
+        userId: user?.uid || "guest",
+        email: email,
+        items: items.map(item => ({
+          productId: item.product.id,
+          name: item.product.name,
+          price: item.product.price,
+          quantity: item.quantity,
+          size: item.size
+        })),
+        totalPrice,
+        paymentMethod,
+        status: "pending",
+        createdAt: serverTimestamp(),
+      };
+
+      await addDoc(collection(db, "orders"), orderData);
+
+      // Simulate payment processing delay
+      setTimeout(() => {
+        clearCart();
+        router.push("/checkout/success");
+      }, 1500);
+    } catch (err) {
+      console.error("Error saving order:", err);
+      alert("Failed to process order. Please try again.");
+      setIsProcessing(false);
+    }
   };
 
   if (items.length === 0) {
@@ -93,6 +118,8 @@ export default function CheckoutPage() {
               <h2 className="text-[20px] font-extralight uppercase tracking-[0.2em] pb-6 border-b border-white/5">Recipient Details</h2>
               <input 
                 type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="EMAIL ADDRESS" 
                 className="w-full h-16 bg-transparent border-b border-white/10 text-[13px] font-light uppercase tracking-[0.2em] outline-none focus:border-white transition-all placeholder:text-zinc-800"
               />
@@ -246,4 +273,3 @@ export default function CheckoutPage() {
     </div>
   );
 }
-
