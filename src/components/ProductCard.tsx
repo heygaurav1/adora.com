@@ -75,7 +75,7 @@ export function ProductCard({ product }: ProductCardProps) {
               product.tag === "SALE" 
                 ? "bg-red-600/90 text-white border-red-500/20" 
                 : product.tag === "NEW ARRIVAL" 
-                  ? "bg-white text-black border-white"
+                  ? "bg-black text-white border-white/40"
                   : product.tag === "ECO"
                     ? "bg-emerald-600/90 text-white border-emerald-500/20"
                     : "bg-black/60 backdrop-blur-md text-white border-white/10"
@@ -93,7 +93,7 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Quick Add to Bag on hover */}
         <button
           onClick={handleQuickAdd}
-          className="absolute bottom-4 left-4 right-4 h-11 bg-white text-black text-[10px] font-normal uppercase tracking-[0.2em] rounded-full flex items-center justify-center gap-2 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-zinc-200 shadow-2xl"
+          className="absolute bottom-4 left-4 right-4 h-11 bg-black/80 backdrop-blur-xl text-white text-[10px] font-normal uppercase tracking-[0.2em] border border-white/10 rounded-full flex items-center justify-center gap-2 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-white hover:text-black shadow-2xl"
         >
           <ShoppingBag className="w-3.5 h-3.5" /> Quick Add
         </button>
