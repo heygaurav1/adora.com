@@ -61,7 +61,7 @@ export default function Home() {
         </section>
 
         {/* ━━━ 2. LA FAVORITES — CURATED FOR THE COAST ━━━ */}
-        <section className="w-full py-24 md:py-36 bg-black flex flex-col items-center">
+        <section className="w-full py-32 md:py-64 bg-black flex flex-col items-center">
           <div className="w-full max-w-[1400px] px-6 md:px-12 flex flex-col items-center">
              <div className="flex flex-col items-center text-center max-w-[700px] mb-16 md:mb-24">
                 <span className="inline-flex items-center gap-2 text-[10px] font-normal uppercase tracking-[0.4em] text-amber-500 bg-amber-500/5 px-4 py-1.5 rounded-full border border-amber-500/20 mb-6">
@@ -112,7 +112,7 @@ export default function Home() {
         </section>
 
         {/* ━━━ 4. SUSTAINABLE STORY — EDITORIAL BANNER ━━━ */}
-        <section className="w-full h-[75vh] relative overflow-hidden flex items-center justify-center mt-24 md:mt-36">
+        <section className="w-full h-[75vh] relative overflow-hidden flex items-center justify-center mt-32 md:mt-64">
            <img 
               src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80" 
               className="absolute inset-0 w-full h-full object-cover brightness-50 grayscale-[0.3]" 
@@ -136,7 +136,7 @@ export default function Home() {
         </section>
 
         {/* ━━━ 5. NEW ARRIVALS ━━━ */}
-        <section className="w-full py-24 md:py-36 bg-black flex flex-col items-center">
+        <section className="w-full py-32 md:py-64 bg-black flex flex-col items-center">
           <div className="w-full max-w-[1400px] px-6 md:px-12">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-6">
                <div className="flex flex-col gap-2">
@@ -201,7 +201,7 @@ export default function Home() {
         </section>
 
         {/* ━━━ 7. TESTIMONIAL / SOCIAL PROOF ━━━ */}
-        <section className="w-full py-24 md:py-36 bg-black flex flex-col items-center border-b border-white/5">
+        <section className="w-full py-32 md:py-64 bg-black flex flex-col items-center border-b border-white/5">
           <div className="w-full max-w-[800px] px-6 text-center flex flex-col items-center">
             <div className="flex items-center gap-1.5 mb-10 opacity-60">
               {[...Array(5)].map((_, i) => (

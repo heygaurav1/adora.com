@@ -29,11 +29,11 @@ const BRAND = [
 
 export function Footer() {
   return (
-    <footer className="w-full bg-black border-t border-white/5 pt-32 pb-16 flex flex-col items-center">
+    <footer className="w-full bg-black border-t border-white/5 pt-48 pb-24 flex flex-col items-center">
       <div className="w-full max-w-[1500px] px-6 md:px-12">
         
         {/* Top Section: Branding & Newsletter */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32 border-b border-white/5 pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-48 border-b border-white/5 pb-48">
            <div className="flex flex-col gap-8 max-w-[500px]">
               <h3 className="text-[28px] font-extralight tracking-[0.4em] uppercase text-white">ADORA</h3>
               <p className="text-[13px] text-zinc-500 font-light leading-relaxed uppercase tracking-[0.15em]">
@@ -65,7 +65,7 @@ export function Footer() {
         </div>
 
         {/* Middle Section: Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-16 mb-32">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-16 mb-48">
           <div className="flex flex-col gap-8">
             <h4 className="text-[10px] font-normal uppercase tracking-[0.3em] text-zinc-400">Discover</h4>
             <ul className="flex flex-col gap-4">
@@ -130,8 +130,8 @@ export function Footer() {
         </div>
 
         {/* Massive Gucci-style Branding */}
-        <div className="w-full pt-32 pb-40 flex flex-col items-center justify-center overflow-hidden pointer-events-none select-none">
-           <h2 className="text-[120px] md:text-[220px] lg:text-[320px] font-extralight tracking-[0.2em] text-white leading-none opacity-[0.95] translate-y-10">
+        <div className="w-full pt-48 pb-64 flex flex-col items-center justify-center overflow-hidden pointer-events-none select-none">
+           <h2 className="text-[120px] md:text-[220px] lg:text-[320px] font-extralight tracking-[0.2em] text-white leading-none opacity-[0.95] translate-y-20">
               ADORA
            </h2>
         </div>
